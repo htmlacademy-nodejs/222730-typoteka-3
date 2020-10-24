@@ -8,7 +8,7 @@ const FILE_NAME = `mocks.json`;
 const MAX_COUNT = 1000;
 const MAX_DAY_CREATE = 90;
 
-const {TITLES, DESCRIPTIONS, CATEGORIES} = require('./testData.js');
+const {TITLES, DESCRIPTIONS, CATEGORIES} = require(`./testData.js`);
 
 const getRandomDate = () => {
   const day = 24 * 3600 * 1000;
@@ -24,7 +24,7 @@ const createRandomOffer = () => {
     createdDate: getRandomDate(),
     announce: shuffle(DESCRIPTIONS).slice(0, getRandomInt(1, 5)).join(` `),
     fullText: shuffle(DESCRIPTIONS).slice(0, getRandomInt(1, DESCRIPTIONS.length - 1)).join(` `),
-    сategory:Array(getRandomInt(1, 3)).fill(``)
+    сategory: Array(getRandomInt(1, 3)).fill(``)
     .map(() => CATEGORIES[getRandomInt(0, CATEGORIES.length - 1)])
     .reduce((acc, it) => !acc.includes(it) ? [...acc, it] : acc, []),
   };
